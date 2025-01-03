@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
@@ -14,12 +15,12 @@ export default function Hero() {
             We're looking for visionary entrepreneurs ready to scale their businesses and create jobs through digital innovation.
           </p>
           <div className="space-y-4 sm:space-y-0 sm:space-x-6 flex flex-col sm:flex-row items-center animate-fade-in-delay-2">
-            <a
-              href="#apply"
-              className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-full text-white bg-primary hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto"
-            >
-              Apply Now <ArrowRight className="ml-2" size={20} />
-            </a>
+          <Link 
+            to="/apply"
+            className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-full text-white bg-primary hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto"
+          >
+            Apply Now<ArrowRight className="ml-2" size={20} />
+          </Link>
             <div className="inline-flex items-center text-white/90 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm">
               <span className="font-semibold">Application Deadline:</span>
               <span className="ml-2">Feb 2, 2025</span>
