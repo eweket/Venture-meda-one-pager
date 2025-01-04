@@ -1,9 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Logo from "../logo/venture-meda-logo.png"
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [bannerVisible, setBannerVisible] = useState(true);
+
+  useEffect(() => {
+    // Update this when banner visibility changes
+    const checkBannerVisibility = () => {
+      const bodyPadding = parseInt(document.body.style.paddingTop);
+      setBannerVisible(bodyPadding > 0);
+    };
+
+    const observer = new MutationObserver(checkBannerVisibility);
+    observer.observe(document.body, { attributes: true });
+
+    return () => observer.disconnect();
+  }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -16,11 +31,19 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-sm z-50 border-b">
+    <nav className={`
+      fixed top-0 left-0 right-0 bg-white z-40 shadow-sm
+      transition-all duration-300
+      ${bannerVisible ? 'mt-[48px]' : 'mt-0'}
+    `}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <Link to="/" className="font-poppins text-2xl font-bold text-primary">
-            Venture Meda
+          <Link to="/" className="flex items-center">
+            <img 
+              src={Logo}
+              alt="Venture Meda Logo"
+              className="h-8 w-auto"
+            />
           </Link>
 
           {/* Mobile menu button */}
@@ -74,7 +97,7 @@ export default function Navbar() {
             </a>
           ))}
           <a 
-            href="#apply"
+            href="/apply"
             className="block w-full text-center bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition-colors"
             onClick={() => setIsMenuOpen(false)}
           >

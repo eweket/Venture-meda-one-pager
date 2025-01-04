@@ -1,20 +1,20 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import Navbar from './components/Navbar';
-// import Footer from './components/Footer';
-// import Hero from './components/Hero';
-// import About from './components/About';
-// import Benefits from './components/Benefits';
-// import Eligibility from './components/Eligibility';
-// import FAQ from './components/FAQ';
-// import Partners from './components/Partners';
-// import Contact from './components/Contact';
-// import Forms from './pages/Forms';
-import ComingSoon from './components/ComingSoon';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Hero from './components/Hero';
+import About from './components/About';
+import Benefits from './components/Benefits';
+import Eligibility from './components/Eligibility';
+import FAQ from './components/FAQ';
+import Partners from './components/Partners';
+import Contact from './components/Contact';
+import Forms from './pages/Forms';
+import FloatingApply from './components/FloatingApply';
 
 function HomePage() {
   return (
     <>
-      {/* <main>
+      <main>
         <Hero />
         <About />
         <Benefits />
@@ -23,8 +23,7 @@ function HomePage() {
         <Partners />
         <Contact />
       </main>
-      <Footer /> */}
-      <ComingSoon />
+      <Footer />
     </>
   );
 }
@@ -33,10 +32,11 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white font-lora">
-        {/* <Navbar /> */}
+        <FloatingApply />
+        <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          {/* <Route path="/apply" element={<Forms />} /> */}
+          <Route path="/apply" element={<Forms />} />
         </Routes>
       </div>
     </Router>

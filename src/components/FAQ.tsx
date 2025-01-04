@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown, Mail, Phone } from 'lucide-react';
+import ScrollAnimation from './ScrollAnimation';
 
 const faqs = [
   {
@@ -41,17 +42,21 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
+        <ScrollAnimation>
+          <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl font-bold text-gray-900 mb-4 font-poppins">
             Frequently Asked <span className="text-primary">Questions</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-lora">
-            Find answers to common questions about Venture Meda
-          </p>
-        </div>
+              Find answers to common questions about Venture Meda
+            </p>
+          </div>
+        </ScrollAnimation>
 
         <div className="max-w-3xl mx-auto animate-fade-in-delay">
-          <div className="space-y-4">
+          <ScrollAnimation>
+            <div className="space-y-4"> 
+             
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
@@ -80,9 +85,11 @@ export default function FAQ() {
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="mt-16 p-8 bg-secondary/5 rounded-xl animate-fade-in-delay-2">
+            </div>
+          </ScrollAnimation>
+          <ScrollAnimation>
+          <div className="mt-16 p-8 bg-secondary/5 rounded-xl">
+           
             <h3 className="text-xl font-semibold mb-6 font-poppins text-center text-gray-900">
               Still have questions?
             </h3>
@@ -97,8 +104,11 @@ export default function FAQ() {
                 <Phone className="w-5 h-5" />
                 <span className="font-lora">0911178129 / +251900045227</span>
               </div>
+              
             </div>
+        
           </div>
+          </ScrollAnimation>
         </div>
       </div>
     </section>

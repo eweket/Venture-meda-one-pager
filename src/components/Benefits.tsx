@@ -1,4 +1,5 @@
 import { BookOpen, Users, Coins, LineChart, Network, Globe } from 'lucide-react';
+import ScrollAnimation from "./ScrollAnimation";
 
 const benefits = [
   {
@@ -50,69 +51,87 @@ export default function Benefits() {
   return (
     <section id="benefits" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 font-poppins">
-            Program <span className="text-primary">Benefits</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-lora">
-            What you'll gain from joining Venture Meda
-          </p>
-        </div>
+        <ScrollAnimation>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-poppins">
+              Program <span className="text-primary">Benefits</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-lora">
+              What you'll gain from joining Venture Meda
+            </p>
+          </div>
+        </ScrollAnimation>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
-              <div 
-                key={index} 
-                className={`
-                  bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300
-                  animate-fade-in-delay border border-${benefit.color}/10
-                  transform hover:-translate-y-1
-                `}
-              >
-                <div className={`
-                  w-14 h-14 bg-${benefit.color}/10 rounded-xl 
-                  flex items-center justify-center mb-6
-                `}>
-                  <Icon className={`w-7 h-7 text-${benefit.color}`} />
-                </div>
-                
-                <h3 className="text-xl font-semibold mb-4 font-poppins text-gray-900">
-                  {benefit.title}
-                </h3>
-                
-                <p className="text-gray-600 font-lora mb-4 leading-relaxed">
-                  {benefit.description}
-                </p>
+              <ScrollAnimation key={index}>
+                <div className="group">
+                  <div className={`
+                    bg-white p-6 rounded-xl
+                    border border-gray-100 shadow-sm
+                    transition-all duration-300 ease-in-out
+                    h-[250px] group-hover:h-auto
+                    relative overflow-hidden
+                  `}>
+                    {/* Header - Always Visible */}
+                    <div className="mb-6">
+                      <div className={`
+                        w-12 h-12 bg-${benefit.color}/10 rounded-lg
+                        flex items-center justify-center mb-4
+                      `}>
+                        <Icon className={`w-6 h-6 text-${benefit.color}`} />
+                      </div>
+                      <h3 className="text-lg font-semibold font-poppins text-gray-900">
+                        {benefit.title}
+                      </h3>
+                    </div>
 
-                {benefit.details && (
-                  <ul className="space-y-2 mt-4">
-                    {benefit.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-start space-x-2 text-sm text-gray-600 font-lora">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-2"></span>
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+                    {/* Content */}
+                    <div className="relative">
+                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                        {benefit.description}
+                      </p>
+
+                      {benefit.details && (
+                        <ul className="space-y-2">
+                          {benefit.details.map((detail, idx) => (
+                            <li key={idx} className="flex gap-2 text-sm text-gray-600">
+                              <span className="w-1 h-1 rounded-full bg-primary flex-shrink-0 mt-2"></span>
+                              <span>{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+
+                    {/* Gradient Overlay */}
+                    <div className="
+                      absolute bottom-0 inset-x-0 h-20
+                      bg-gradient-to-t from-white to-transparent
+                      group-hover:opacity-0
+                      transition-opacity duration-300
+                    "/>
+                  </div>
+                </div>
+              </ScrollAnimation>
             );
           })}
         </div>
 
-        <div className="mt-16 bg-secondary/5 p-8 rounded-xl animate-fade-in-delay-2">
-          <h3 className="text-2xl font-semibold mb-6 font-poppins text-center text-gray-900">
-            Why <span className="text-primary">Join</span>?
-          </h3>
-          <p className="text-gray-600 font-lora leading-relaxed max-w-4xl mx-auto text-center">
-            If your startup is fairly new in the market and you are thriving to refine your business model, 
-            validate your products, and enhance your market strategies with tailored guidance and feedback, 
-            you will benefit from this 6-month program. Additionally, being part of the Venture Meda incubator 
-            program will help boost credibility and visibility, helping your startup overcome challenges and 
-            scale effectively in a competitive environment.
-          </p>
-        </div>
+        <ScrollAnimation>
+          <div className="mt-16 bg-gray-50 p-8 rounded-xl">
+            <h3 className="text-2xl font-semibold mb-4 font-poppins text-center">
+              Why <span className="text-primary">Join</span>?
+            </h3>
+            <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto text-center">
+              If your startup is fairly new in the market and you are thriving to refine your business model, 
+              validate your products, and enhance your market strategies with tailored guidance and feedback, 
+              you will benefit from this 6-month program.
+            </p>
+          </div>
+        </ScrollAnimation>
       </div>
     </section>
   );
