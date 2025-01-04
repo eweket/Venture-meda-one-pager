@@ -1,10 +1,14 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import visual from "../logo/hero.avif"
 
 export default function Hero() {
   return (
     <div className="relative bg-secondary text-white pt-32 pb-20 min-h-[90vh] flex items-center">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-overlay opacity-10"></div>
+      <div 
+        className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-10"
+        style={{ backgroundImage: `url(${visual})` }}
+      ></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-3xl">
           <h1 className="font-poppins text-4xl md:text-6xl font-bold mb-8 text-primary animate-fade-in">
