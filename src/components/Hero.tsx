@@ -12,11 +12,10 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-3xl">
           <h1 className="font-poppins text-4xl md:text-6xl font-bold mb-8 text-primary animate-fade-in">
-            Empowering the Future of E-commerce in Ethiopia
+          ElevateHER: scale your online business
           </h1>
           <p className="font-lora text-xl mb-12 text-white/90 leading-relaxed animate-fade-in-delay">
-            Join our 3rd cohort incubation program and be part of Ethiopia's thriving digital economy. 
-            We're looking for visionary entrepreneurs ready to scale their businesses and create jobs through digital innovation.
+          Are you a woman entrepreneur selling products through digital platforms (social media or online marketplaces)? Venture Meda's elevateHER will help you grow!
           </p>
           <div className="space-y-4 sm:space-y-0 sm:space-x-6 flex flex-col sm:flex-row items-center animate-fade-in-delay-2">
           <Link 
@@ -27,7 +26,7 @@ export default function Hero() {
           </Link>
             <div className="inline-flex items-center text-white/90 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm">
               <span className="font-semibold">Application Deadline:</span>
-              <span className="ml-2">Feb 2, 2025</span>
+              <span className="ml-2">Apr 30, 2025</span>
             </div>
           </div>
         </div>

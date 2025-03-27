@@ -36,18 +36,28 @@ export default function Forms() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4 font-poppins">
-            Apply to <span className="text-primary">Venture Meda</span>
+            Apply to <span className="text-primary">ElevateHER</span>
           </h1>
           <p className="text-xl text-gray-600 font-lora">
             Fill out the form below to start your application process
           </p>
         </div>
 
-        {/* HubSpot form will be rendered here */}
-        <div 
-          id="hubspot-form-container" 
-          className="bg-white shadow-lg rounded-xl p-8"
-        ></div>
+        {/* Google Form*/}
+        <div className="bg-white shadow-lg rounded-xl p-8">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSeyN2CymXoOdpg_K_Hhl62k30zQF8Hl-B4fG5zmn3m7tqs8zw/viewform?embedded=true"
+            width="100%"
+            height="800px"
+            frameBorder="0"
+            marginHeight={0}
+            marginWidth={0}
+            className="mx-auto"
+            title="Venture Meda Application Form"
+          >
+            Loading…
+          </iframe>
+        </div>
       </div>
     </div>
   );

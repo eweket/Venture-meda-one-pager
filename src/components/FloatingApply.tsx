@@ -33,7 +33,7 @@ export default function FloatingApply() {
                 <div className="hidden sm:flex items-center space-x-2">
                   <Clock className="w-4 h-4 animate-pulse text-secondary" />
                   <p className="text-sm font-medium text-secondary">
-                    Application Deadline: <span className="font-semibold font-poppins ">February 02, 2025</span>
+                    Application Deadline: <span className="font-semibold font-poppins text-secondary font-bold">Apr 30, 2025</span>
                   </p>
                 </div>
                 <motion.div
