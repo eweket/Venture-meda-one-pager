@@ -14,7 +14,7 @@ const criteria = [
   },
   {
     title: 'Team Composition',
-    detail: 'A minimum of two founding members. Preferably one should be a woman'
+    detail: 'All founding members should be women.'
   },
   {
     title: 'Revenue',

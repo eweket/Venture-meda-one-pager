@@ -1,4 +1,4 @@
-import { BookOpen, Users, Coins, LineChart, Network, Globe } from 'lucide-react';
+import { BookOpen, Users, Coins, LineChart, Network, Globe, Lightbulb } from 'lucide-react';
 import ScrollAnimation from "./ScrollAnimation";
 
 const benefits = [
@@ -20,6 +20,12 @@ const benefits = [
       'Craft go-to-market strategy'
     ],
     color: 'secondary'
+  },
+  {
+    icon: Lightbulb,
+    title: 'Idea Camp',
+    description: 'A two-day intensive bootcamp to provide high-impact practical tools to review your business model through Design Thinking.',
+    color: 'primary'
   },
   {
     icon: Network,
@@ -57,17 +63,18 @@ export default function Benefits() {
               Program <span className="text-primary">Benefits</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto font-lora">
-              What you'll gain from joining Venture Meda
+            What will you gain from joining Venture Meda elevateHER
             </p>
           </div>
         </ScrollAnimation>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
+            const isLastRow = index >= 4;
             return (
               <ScrollAnimation key={index}>
-                <div className="group">
+                <div className={`group ${isLastRow ? 'lg:col-span-1' : ''}`}>
                   <div className={`
                     bg-white p-6 rounded-xl
                     border border-gray-100 shadow-sm
@@ -126,9 +133,8 @@ export default function Benefits() {
               Why <span className="text-primary">Join</span>?
             </h3>
             <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto text-center">
-              If your startup is fairly new in the market and you are thriving to refine your business model, 
-              validate your products, and enhance your market strategies with tailored guidance and feedback, 
-              you will benefit from this 6-month program.
+            If you are looking to refine your business model, leverage social media and AI tools, validate your products, and enhance your market strategies with expert guidance, this six-month program is designed for you. <br></br>
+            Gain valuable insights, receive tailored feedback, and expand your network by connecting with other women entrepreneurs.
             </p>
           </div>
         </ScrollAnimation>
