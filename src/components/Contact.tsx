@@ -1,5 +1,5 @@
-import { Linkedin, Instagram, MessageCircle, Mail, Phone, ExternalLink } from 'lucide-react';
-
+import { Linkedin, Instagram, MessageCircle, Mail, Phone, ExternalLink, Bot} from 'lucide-react';
+import ScrollAnimation from './ScrollAnimation';
 const socialLinks = [
   {
     name: 'LinkedIn',
@@ -35,6 +35,12 @@ const contactInfo = [
     icon: MessageCircle
   },
   {
+    type: 'Telegram Bot',
+    value: '@venturemeda_bot',
+    url: 'https://t.me/venturemeda_bot',
+    icon: Bot
+  },
+  {
     type: 'Email',
     value: 'apply@iceaddis.com',
     url: 'mailto:apply@iceaddis.com',
@@ -52,65 +58,74 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 font-poppins">
-            Let's <span className="text-primary">Connect</span>!
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-lora">
-            Follow us on social media to stay updated with our latest news and announcements
-          </p>
-        </div>
+        <ScrollAnimation>
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-poppins">
+              Let's <span className="text-primary">Connect</span>!
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-lora">
+              Follow us on social media to stay updated with our latest news and announcements
+            </p>
+          </div>
+        </ScrollAnimation>
 
         <div className="max-w-4xl mx-auto">
-          <div className="flex justify-center space-x-12 mb-16 animate-fade-in-delay">
-            {socialLinks.map((social, index) => {
-              const Icon = social.icon;
-              return (
-                <a
-                  key={index}
-                  href={social.url}
-                  className={`
-                    text-gray-600 ${social.hoverColor} transition-all duration-300
-                    transform hover:scale-110
-                  `}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.name}
-                >
-                  <Icon size={36} />
-                </a>
-              );
-            })}
-          </div>
+          <ScrollAnimation>
+            <div className="flex justify-center space-x-8 mb-16 animate-fade-in-delay">
+              {socialLinks.map((social, index) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={index}
+                    href={social.url}
+                    className={`
+                      text-gray-600 ${social.hoverColor} transition-all duration-300
+                      transform hover:scale-110
+                    `}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                  >
+                    <Icon size={36} />
+                  </a>
+                );
+              })}
+            </div>
+          </ScrollAnimation>
 
-          <div className="grid md:grid-cols-2 gap-8 animate-fade-in-delay-2">
-            {contactInfo.map((info, index) => {
-              const Icon = info.icon;
-              return (
-                <a
-                  key={index}
-                  href={info.url}
-                  className="group bg-secondary/5 p-6 rounded-xl hover:bg-secondary/10 transition-all duration-300"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
-                      <Icon className="w-6 h-6 text-primary" />
+          <ScrollAnimation>
+            <div className="grid md:grid-cols-2 gap-8 animate-fade-in-delay-2">
+              {contactInfo.map((info, index) => {
+                const Icon = info.icon;
+                return (
+                  <a
+                    key={index}
+                    href={info.url}
+                    className={`
+                      group bg-secondary/5 p-6 rounded-xl hover:bg-secondary/10 transition-all duration-300
+                      ${index === contactInfo.length - 1 ? 'md:col-span-2 md:max-w-md md:mx-auto md:w-full' : ''}
+                    `}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+                        <Icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-semibold text-gray-500 font-poppins mb-1">
+                          {info.type}
+                        </h3>
+                        <p className="text-gray-900 font-lora">
+                          {info.value}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-sm font-semibold text-gray-500 font-poppins mb-1">
-                        {info.type}
-                      </h3>
-                      <p className="text-gray-900 font-lora">
-                        {info.value}
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              );
-            })}
-          </div>
+                  </a>
+                );
+              })}
+            </div>
+          </ScrollAnimation>
         </div>
       </div>
     </section>

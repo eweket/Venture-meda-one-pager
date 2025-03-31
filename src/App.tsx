@@ -9,6 +9,7 @@ import FAQ from './components/FAQ';
 import Partners from './components/Partners';
 import Contact from './components/Contact';
 import Forms from './pages/Forms';
+import FloatingApply from './components/FloatingApply';
 
 function HomePage() {
   return (
@@ -31,6 +32,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white font-lora">
+        <FloatingApply />
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />

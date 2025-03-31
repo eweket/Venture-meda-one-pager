@@ -1,5 +1,6 @@
 import { Mail, Phone, Linkedin, Instagram, MessageCircle, MapPin, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Logo from "../logo/venture-meda-logo.png"
 
 const socialLinks = [
   {
@@ -39,7 +40,7 @@ export default function Footer() {
           <div className="space-y-4">
             <Link to="/" className="inline-block">
               <h3 className="text-2xl font-bold font-poppins text-primary">
-                Venture Meda
+                <img src={Logo} alt="Venture Meda Logo" className="h-8 w-auto" />
               </h3>
             </Link>
             <p className="text-gray-400 font-lora leading-relaxed">
